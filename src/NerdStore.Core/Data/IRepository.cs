@@ -4,6 +4,6 @@ namespace NerdStore.Core.Data
 {
     public interface IRepository<T> : IDisposable where T : IAggregateRoot
     {
-        IUnityOfWork UnityOfWork { get; }
+        IUnitOfWork UnitOfWork { get; }
     }
 }

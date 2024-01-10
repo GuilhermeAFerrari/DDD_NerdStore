@@ -4,7 +4,7 @@ using NerdStore.Core.Data;
 
 namespace NerdStore.Catalogo.Data
 {
-    public class CatalogoContext : DbContext, IUnityOfWork
+    public class CatalogoContext : DbContext, IUnitOfWork
     {
         protected CatalogoContext(DbContextOptions<CatalogoContext> options)
             : base(options) { }

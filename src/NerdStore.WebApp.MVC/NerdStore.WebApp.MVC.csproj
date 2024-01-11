@@ -24,4 +24,9 @@
     <ProjectReference Include="..\NerdStore.Core\NerdStore.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\AdminProdutos\" />
+    <Folder Include="Views\Vitrine\" />
+  </ItemGroup>
+
 </Project>

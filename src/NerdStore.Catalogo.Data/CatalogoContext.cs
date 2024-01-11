@@ -1,12 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NerdStore.Catalogo.Domain;
 using NerdStore.Core.Data;
+using NerdStore.Core.Messages;
 
 namespace NerdStore.Catalogo.Data
 {
     public class CatalogoContext : DbContext, IUnitOfWork
     {
-        protected CatalogoContext(DbContextOptions<CatalogoContext> options)
+        public CatalogoContext(DbContextOptions<CatalogoContext> options)
             : base(options) { }
 
         public DbSet<Produto> Produtos { get; set; }
@@ -21,8 +22,7 @@ namespace NerdStore.Catalogo.Data
                 property.SetColumnType("varchar(100)");
             }
 
-            //modelBuilder.Ignore<Event>();
-
+            modelBuilder.Ignore<Event>();
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(CatalogoContext).Assembly);
         }
 

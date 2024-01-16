@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using NerdStore.Catalogo.Application.AutoMapper;
 using NerdStore.Catalogo.Data;
+using NerdStore.Vendas.Data;
 using NerdStore.WebApp.MVC.Data;
 using NerdStore.WebApp.MVC.Setup;
 using System.Reflection;
@@ -20,6 +21,9 @@ builder.Services.AddMediatR(
 
 var connectionStringDbContext = builder.Configuration.GetConnectionString("DefaultConnection") ??
     throw new InvalidOperationException("Connection string 'CatalogoConnection' not found.");
+
+builder.Services.AddDbContext<VendasContext>(options =>
+    options.UseSqlServer(connectionStringDbContext));
 
 builder.Services.AddDbContext<CatalogoContext>(options =>
     options.UseSqlServer(connectionStringDbContext));

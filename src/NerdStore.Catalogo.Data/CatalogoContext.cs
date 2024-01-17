@@ -23,6 +23,7 @@ namespace NerdStore.Catalogo.Data
             }
 
             modelBuilder.Ignore<Event>();
+
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(CatalogoContext).Assembly);
         }
 

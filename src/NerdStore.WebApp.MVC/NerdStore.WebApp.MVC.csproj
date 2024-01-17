@@ -28,6 +28,8 @@
 
   <ItemGroup>
     <Folder Include="Views\AdminProdutos\" />
+    <Folder Include="Views\Shared\Components\Cart\" />
+    <Folder Include="Views\Shared\Components\Summary\" />
     <Folder Include="Views\Vitrine\" />
   </ItemGroup>
 

@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using NerdStore.Core.DomainObjects;
 using NerdStore.Core.Messages;
+using NerdStore.Core.Messages.CommomMessages.Notifications;
 
-namespace NerdStore.Core.Bus
+namespace NerdStore.Core.Communication.Mediator
 {
     public class MediatorHandler : IMediatorHandler
     {
@@ -23,10 +23,10 @@ namespace NerdStore.Core.Bus
             return await _mediator.Send(comando);
         }
 
-        //public Task PublicarNotificacao<T>(T notificacao) where T : DomainNotification
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public async Task PublicarNotificacao<T>(T notificacao) where T : DomainNotification
+        {
+            await _mediator.Publish(notificacao);
+        }
 
         //public Task PublicarDomainEvent<T>(T notificacao) where T : DomainEvent
         //{

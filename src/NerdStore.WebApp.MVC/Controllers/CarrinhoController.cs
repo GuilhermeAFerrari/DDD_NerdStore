@@ -4,30 +4,31 @@ using NerdStore.Catalogo.Application.Services;
 using NerdStore.Core.Communication.Mediator;
 using NerdStore.Core.Messages.CommomMessages.Notifications;
 using NerdStore.Vendas.Application.Commands;
+using NerdStore.Vendas.Application.Queries;
 
 namespace NerdStore.WebApp.MVC.Controllers
 {
     public class CarrinhoController : ControllerBase
     {
         private readonly IProdutoAppService _produtoAppService;
-        //private readonly IPedidoQueries _pedidoQueries;
+        private readonly IPedidoQueries _pedidoQueries;
         private readonly IMediatorHandler _mediatorHandler;
 
         public CarrinhoController(INotificationHandler<DomainNotification> notifications,
                                   IProdutoAppService produtoAppService, 
-                                  IMediatorHandler mediatorHandler
-                                  /*IPedidoQueries pedidoQueries*/) : base(notifications, mediatorHandler)
+                                  IMediatorHandler mediatorHandler,
+                                  IPedidoQueries pedidoQueries) : base(notifications, mediatorHandler)
         {
             _produtoAppService = produtoAppService;
             _mediatorHandler = mediatorHandler;
-            //_pedidoQueries = pedidoQueries;
+            _pedidoQueries = pedidoQueries;
         }
 
-        //[Route("meu-carrinho")]
-        //public async Task<IActionResult> Index()
-        //{
-        //    return View(await _pedidoQueries.ObterCarrinhoCliente(ClienteId));
-        //}
+        [Route("meu-carrinho")]
+        public async Task<IActionResult> Index()
+        {
+            return View(await _pedidoQueries.ObterCarrinhoCliente(ClienteId));
+        }
 
         [HttpPost]
         [Route("meu-carrinho")]

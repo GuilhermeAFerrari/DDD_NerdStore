@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using NerdStore.Core.Communication.Mediator;
+﻿using NerdStore.Core.Communication.Mediator;
 using NerdStore.Core.DomainObjects.DTO;
 using NerdStore.Core.Messages.CommomMessages.Notifications;
 using NerdStore.Core.Messages.CommonMessages.IntegrationEvents;

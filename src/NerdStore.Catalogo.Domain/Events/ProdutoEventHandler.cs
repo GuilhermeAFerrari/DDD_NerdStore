@@ -35,7 +35,8 @@ namespace NerdStore.Catalogo.Domain.Events
                 await _mediatorHandler.PublicarEvento(new PedidoEstoqueConfirmadoEvent(
                                                                 mensagem.PedidoId,
                                                                 mensagem.ClienteId,
-                                                                mensagem.Total, 
+                                                                mensagem.Total,
+                                                                mensagem.ProdutosPedido,
                                                                 mensagem.NomeCartao,
                                                                 mensagem.NumeroCartao,
                                                                 mensagem.ExpiracaoCartao,

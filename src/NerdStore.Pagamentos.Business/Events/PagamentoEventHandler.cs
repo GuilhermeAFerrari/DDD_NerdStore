@@ -1,6 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using MediatR;
+﻿using MediatR;
 using NerdStore.Core.DomainObjects.DTO;
 using NerdStore.Core.Messages.CommonMessages.IntegrationEvents;
 

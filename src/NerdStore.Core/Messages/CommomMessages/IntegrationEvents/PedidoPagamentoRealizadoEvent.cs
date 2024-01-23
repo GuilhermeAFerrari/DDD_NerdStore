@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace NerdStore.Core.Messages.CommonMessages.IntegrationEvents
+﻿namespace NerdStore.Core.Messages.CommonMessages.IntegrationEvents
 {
     public class PedidoPagamentoRealizadoEvent : IntegrationEvent
     {

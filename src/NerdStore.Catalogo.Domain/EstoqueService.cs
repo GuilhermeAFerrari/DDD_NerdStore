@@ -1,4 +1,5 @@
-﻿using NerdStore.Core.Communication.Mediator;
+﻿using NerdStore.Catalogo.Domain.Events;
+using NerdStore.Core.Communication.Mediator;
 using NerdStore.Core.DomainObjects.DTO;
 using NerdStore.Core.Messages.CommomMessages.Notifications;
 
@@ -50,7 +51,7 @@ namespace NerdStore.Catalogo.Domain
             // TODO: 10 pode ser parametrizavel em arquivo de configuração (valor de estoque baixo)
             if (produto.QuantidadeEstoque < 10)
             {
-                //await _mediatroHandler.PublicarDomainEvent(new ProdutoAbaixoEstoqueEvent(produto.Id, produto.QuantidadeEstoque));
+                await _mediatroHandler.PublicarDomainEvent(new ProdutoAbaixoEstoqueEvent(produto.Id, produto.QuantidadeEstoque));
             }
 
             _produtoRepository.Atualizar(produto);

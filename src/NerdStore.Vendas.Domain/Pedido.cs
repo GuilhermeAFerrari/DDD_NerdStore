@@ -5,6 +5,9 @@ namespace NerdStore.Vendas.Domain
 {
     public class Pedido : Entity, IAggregateRoot
     {
+        public const int MAX_UNIDADES_ITEM = 15;
+        public const int MIN_UNIDADES_ITEM = 1;
+
         public int Codigo { get; private set; }
         public Guid ClienteId { get; private set; }
         public Guid? VoucherId { get; private set; }

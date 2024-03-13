@@ -1,5 +1,6 @@
 ﻿using FluentValidation.Results;
 using NerdStore.Core.DomainObjects;
+using NerdStore.Core.DomainObjects.DTO;
 
 namespace NerdStore.Vendas.Domain
 {
@@ -88,15 +89,32 @@ namespace NerdStore.Vendas.Domain
             return _pedidoItems.Any(p => p.ProdutoId == item.ProdutoId);
         }
 
+        private void ValidarQuantidadeItemPermitida(PedidoItem pedidoItem)
+        {
+            var quantidadeItem = pedidoItem.Quantidade;
+
+            if (PedidoItemExistente(pedidoItem))
+            {
+                var itemExistente = _pedidoItems.FirstOrDefault(p => p.ProdutoId == pedidoItem.ProdutoId);
+                quantidadeItem += itemExistente.Quantidade;
+            }
+
+            if (quantidadeItem > MAX_UNIDADES_ITEM)
+                throw new DomainException($"Máximo de {MAX_UNIDADES_ITEM} unidades por produto");
+        }
+
         public void AdicionarItem(PedidoItem item)
         {
             if (!item.EhValido()) return;
+
+            ValidarQuantidadeItemPermitida(item);
 
             item.AssociarPedido(Id);
 
             if (PedidoItemExistente(item))
             {
                 var itemExistente = _pedidoItems.FirstOrDefault(p => p.ProdutoId == item.ProdutoId);
+
                 itemExistente.AdicionarUnidades(item.Quantidade);
                 item = itemExistente;
 
@@ -115,7 +133,7 @@ namespace NerdStore.Vendas.Domain
 
             var itemExistente = PedidoItems.FirstOrDefault(p => p.ProdutoId == item.ProdutoId);
 
-            if (itemExistente == null) throw new DomainException("O item não pertence ao pedido");
+            if (itemExistente is null) throw new DomainException("O item não pertence ao pedido");
             _pedidoItems.Remove(itemExistente);
 
             CalcularValorPedido();
@@ -129,6 +147,8 @@ namespace NerdStore.Vendas.Domain
             var itemExistente = PedidoItems.FirstOrDefault(p => p.ProdutoId == item.ProdutoId);
 
             if (itemExistente == null) throw new DomainException("O item não pertence ao pedido");
+
+            ValidarQuantidadeItemPermitida(item);
 
             _pedidoItems.Remove(itemExistente);
             _pedidoItems.Add(item);

@@ -20,7 +20,21 @@ namespace NerdStore.Vendas.Domain
         // EF Relation
         public ICollection<Pedido> Pedidos { get; set; }
 
-        internal ValidationResult ValidarSeAplicavel()
+        public Voucher(string codigo, decimal? percentual, decimal? valorDesconto, int quantidade,
+            TipoDescontoVoucher tipoDescontoVoucher, DateTime dataValidade, bool ativo, bool utilizado)
+        {
+            Codigo = codigo;
+            Percentual = percentual;
+            ValorDesconto = valorDesconto;
+            Quantidade = quantidade;
+            TipoDescontoVoucher = tipoDescontoVoucher;
+            DataValidade = dataValidade;
+            Ativo = ativo;
+            Utilizado = utilizado;
+            Pedidos = new List<Pedido>();
+        }
+
+        public ValidationResult ValidarSeAplicavel()
         {
             return new VoucherAplicavelValidation().Validate(this);
         }
@@ -45,7 +59,7 @@ namespace NerdStore.Vendas.Domain
 
             RuleFor(c => c.Quantidade)
                 .GreaterThan(0)
-                .WithMessage("Este voucher não está mais disponível");
+                .WithMessage("Este voucher não está mais disponível.");
         }
 
         protected static bool DataVencimentoSuperiorAtual(DateTime dataValidade)

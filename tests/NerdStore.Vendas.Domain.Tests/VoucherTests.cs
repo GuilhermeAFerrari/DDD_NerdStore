@@ -51,7 +51,7 @@ namespace NerdStore.Vendas.Domain.Tests
             Assert.True(result.IsValid);
         }
 
-        [Fact(DisplayName = "Validar voucher tipo procentagem inválido")]
+        [Fact(DisplayName = "Validar voucher tipo porcentagem inválido")]
         [Trait("Categoria", "Vendas - Voucher")]
         public void Voucher_ValidarVoucherTipoPorcentagem_DeveEstarInvalido()
         {

@@ -50,9 +50,8 @@ namespace NerdStore.Vendas.Application.Commands
             }
             else
             {
-                pedido.AdicionarItem(pedidoItem);
-
                 var pedidoItemExistente = pedido.PedidoItemExistente(pedidoItem);
+                pedido.AdicionarItem(pedidoItem);
 
                 if (pedidoItemExistente)
                 {

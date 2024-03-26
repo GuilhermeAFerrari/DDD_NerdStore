@@ -63,6 +63,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens
 		Fact_aaa.snnipet = Fact_aaa.snnipet
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C1EA3AC9-E09C-44E3-8FAC-50A925AEF4C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NerdStore.WebApp.IntegrationTests", "tests\NerdStore.WebApp.IntegrationTests\NerdStore.WebApp.IntegrationTests.csproj", "{29B9103A-DCA6-468D-A4E0-97425A990BA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +133,10 @@ Global
 		{C4992558-31CC-40D2-AA19-76B7CAD925A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4992558-31CC-40D2-AA19-76B7CAD925A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4992558-31CC-40D2-AA19-76B7CAD925A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29B9103A-DCA6-468D-A4E0-97425A990BA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29B9103A-DCA6-468D-A4E0-97425A990BA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29B9103A-DCA6-468D-A4E0-97425A990BA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29B9103A-DCA6-468D-A4E0-97425A990BA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -157,6 +165,8 @@ Global
 		{34B2D10B-7890-4869-9E90-B7F8E7AB3C34} = {FF94C5A1-862D-41F7-8642-78A3E989F9F8}
 		{2ACEF510-3FC3-4FD2-A38E-9FB773FC8684} = {34B2D10B-7890-4869-9E90-B7F8E7AB3C34}
 		{C4992558-31CC-40D2-AA19-76B7CAD925A3} = {34B2D10B-7890-4869-9E90-B7F8E7AB3C34}
+		{C1EA3AC9-E09C-44E3-8FAC-50A925AEF4C6} = {DC811844-F038-4888-8F15-6C6FD961E656}
+		{29B9103A-DCA6-468D-A4E0-97425A990BA8} = {C1EA3AC9-E09C-44E3-8FAC-50A925AEF4C6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {52B6D57C-3314-4E8C-9140-28E9B68DB245}

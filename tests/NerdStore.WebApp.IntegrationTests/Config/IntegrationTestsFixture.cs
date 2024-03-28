@@ -1,16 +1,16 @@
 ﻿using Bogus;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.VisualStudio.TestPlatform.TestHost;
 using System.Net.Http.Json;
 using System.Text.RegularExpressions;
+using NerdStore.WebApp.MVC;
 
 namespace NerdStore.WebApp.IntegrationTests.Config
 {
     [CollectionDefinition(nameof(IntegrationWebTestsFixtureCollection))]
     public class IntegrationWebTestsFixtureCollection : ICollectionFixture<IntegrationTestsFixture<Program>> { }
 
-    [CollectionDefinition(nameof(IntegrationApiTestsFixtureCollection))]
-    public class IntegrationApiTestsFixtureCollection : ICollectionFixture<IntegrationTestsFixture<Program>> { }
+    //[CollectionDefinition(nameof(IntegrationApiTestsFixtureCollection))]
+    //public class IntegrationApiTestsFixtureCollection : ICollectionFixture<IntegrationTestsFixture<Program>> { }
 
     public class IntegrationTestsFixture<TProgram> : IDisposable where TProgram : class
     {
